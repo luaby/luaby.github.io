@@ -4,16 +4,16 @@
   
     
     <entry>
-      <title>Hexo</title>
+      <title>HTTP中媒体类型-SpringBoot（1）</title>
       <link href="/2022/11/12/Hexo/"/>
       <url>/2022/11/12/Hexo/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1><span style="font-family: 'PingFang SC', 宋体; font-size: 24px;">1.常见媒体类型</span></h1><p>在Http协议中,使用，用 Content- Type 来表示具体请求中的媒体类型信息。 PC 端网页常用的是 "text/html" 格式，手机 APP 常用的是 JSON 格式。</p><p>(1)常见的媒体格式如下<br />&bull; text/html : HTML 格式。<br />&bull; text/plain 纯文本格式。<br />&bull; text/xml: XML 格式。<br />&bull; image/gif: GIF 图片格式。<br />&bull; image/jpeg : JPG 图片格式<br />&bull; image/png: PNG 图片格式</p><p>( 2 )以 application开头的媒体格式如下。<br />&bull; application/xhtml+xml: XHTML + XML 格式。<br />&bull; application/xm : XML 数据格式。<br />&bull; application/atom+xml: Atom XML 聚合格式。<br />&bull; application/json: JSON 数据格式<br />&bull; application/pdf: PDF 格式<br />&bull; application/msword: Word 文档格式。<br />&bull; application/octe -stream: 二进制流数据(常用于文件下载)。<br />&bull; application/x-www-form-urlencoded 表单数据编码方式， &lt;form encType=" " &gt;中默认的 encType，Form (表单)数据被默认编码为 key/value 格式发送给服务器。<br />&bull; multipart/form-data: 如果在表单中进行文件上传，则需要使用该格式。</p><h1><span style="font-size: 24px;">2.举例</span></h1><p>下面是一个返回 JSON 格式的数据的例子。代码中可以省略 Produces 属性，因为已经使用了注解@RestController ，它的返回值就是 JSON 格式的数据。</p><pre class="language-java highlighter-hljs"><code>@RestControllerpublic class BookController &#123;    @RequestMapping(value = "/get",method = RequestMethod.GET,produces = "application/json")    public Book get()&#123;        Book book = new Book();        book.setUsername("拉行啊");        book.setPassword("123");        return book;    &#125;&#125;</code></pre><p>访问结果如下：</p><p><img src="https://img2022.cnblogs.com/blog/2926045/202207/2926045-20220712141632593-1456789034.png" alt="" height="686" width="903" /></p><p id="1657606594323"></p><p id="1657605807659">在以下例子中， Consumes 是消费者，用于指定获取消费者的数据类型</p><pre class="language-java highlighter-hljs"><code>@RequestMapping(value = "/put",method = RequestMethod.POST,consumes = "application/json")public String put(@RequestBody String name)&#123;    return name;&#125;</code></pre><p>&nbsp;<img src="https://img2022.cnblogs.com/blog/2926045/202207/2926045-20220712141337700-1906748308.png" alt="" height="707" width="948" /></p><p id="1657606418621"></p><p>&nbsp;</p>]]></content>
       
       
       <categories>
           
-          <category> 测试 </category>
+          <category> 技术 </category>
           
       </categories>
       
